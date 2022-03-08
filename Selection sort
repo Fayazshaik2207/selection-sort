@@ -1,0 +1,29 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+void selection(vector<int>&v,int r,int c,int i){
+      if(r==0)
+        return ;
+         if(c<r){
+                if(v[c]>v[i]){
+                 i=c;
+                }
+            selection(v,r,c+1,i);
+            }
+        else{
+           int temp=v[r-1];
+                 v[r-1]=v[i];
+                 v[i]=temp;
+           selection(v,r-1,0,0);
+    }
+}
+    int main(){
+        vector<int> v={3,5,78,75,3,2};
+        selection(v,v.size(),0,0);
+        for(int i=0;i<v.size();i++){
+            cout<<v[i]<<" ";
+        }
+        return 0;
+    }
+            
+            
